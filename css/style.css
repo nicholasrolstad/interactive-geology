@@ -5,12 +5,13 @@ body {
         html, body, #map {
             height: 100%;
             width: 100%;
+			border-radius: 10px;
         }
-
 
 .title {
 	height: 90%;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .descriptions {
@@ -68,7 +69,9 @@ width:640px !important;
 .col-6{ width: 100%;
 		background-color: #efefef;
 		padding: 10px;
-		height: 100%;}
+		height: 100%;
+		border-radius: 10px;
+}
 
 h1 {
 	font-family: 'Titillium Web', sans-serif;
@@ -108,6 +111,7 @@ input[type=button] {
 	font-weight:900;
 	font-size: 24px;
 	color: #3c3c3c;
+	border-radius: 10px;
 }
 
 input[type=button]:hover { 
@@ -122,8 +126,6 @@ input[type=button]:hover {
 	color: #1eb2e5;
 }
 
-
-
 /*-- our cleafix hack 2 -- */ 
 .row2:before, 
 .row2:after {
@@ -131,9 +133,6 @@ input[type=button]:hover {
 	display: table ;
 	clear:both;
 }
-
-
-
 
 .hor-scroll {
   	height: 30%;
@@ -145,7 +144,10 @@ input[type=button]:hover {
 .cross-section {
 	height: 100%;
 	width:auto;
+	border-radius: 10px;
 }
+
+
 
 .mapShrink {
 	height: 70% !important;
@@ -154,13 +156,6 @@ input[type=button]:hover {
 .full {
 	height: 100%;
 }
-
-
-
-
-
-
-
 
 @media (max-width: 1800px) {
 	
@@ -190,9 +185,6 @@ input[type=button]:hover {
 	
 }
 
-
-
-
 .p20 {
 	height: 20%;
 }
@@ -202,7 +194,3 @@ input[type=button]:hover {
 .p11 {
 	height: 11%;
 }
-
-
-
-

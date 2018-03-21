@@ -61,8 +61,6 @@ function unitPopUp(feature, layer) {
     }
 }
 
-
-
 // Faults
 function getDash(d) {
 	return d == 'approximately located' ? '3,3' :
@@ -86,13 +84,9 @@ function CSStyle(feature) {
     return {
         opacity: 1,
         color: 'black',
-        weight: 4
+        weight: 6
     };
 }
-
-
-
-
 
 geo = L.geoJson(units, {
     style: unitStyle,
@@ -103,12 +97,10 @@ faultLayer = L.geoJson(faults, {
 	style: faultStyle
 })
 
-
 CSLayer = L.geoJson(crosssections, {
 	style: CSStyle,
 	onEachFeature: CSPopUp
 })
-
 
 // Cross Section 'Pop Up'
 var csPop;
@@ -125,16 +117,11 @@ function CSPopUp(feature, layer) {
 		if (feature.properties && feature.properties.NOTES) {
 			csPop = feature.properties.NOTES;
 			document.getElementById("crossSectionDiv").innerHTML = "<img src=\"images/" + csPop + ".jpg\" class=\"cross-section\">";
+			var CSfeat = e.target;
+            map.fitBounds(CSfeat.getBounds());
 		}
 	});
 }
-
-
-
-
-
-
-
 
 //map
 mapLink = '<a href="https://www.mapbox.com/">Mapbox</a>';
@@ -143,11 +130,18 @@ var terrain = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/
 
 var sat = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlkd2VzdGNvYXN0IiwiYSI6ImNpd3F6djN5ZTAxY3Yyb3BmM2Z4dzlrd2UifQ.ad4-hQvgRhK2ETritdMAYw', {id: 'MapID', attribution: '&copy; ' + mapLink + ' Nicholas Rolstad 2017 +++ All Geological Data from Utah Geological Survey Tule Valley & Wah Wah North 30x60 Geologic Maps'})
 
+var southWest = L.latLng(38.356, -114.28),
+    northEast = L.latLng(39.73, -112.78),
+    bounds = L.latLngBounds(southWest, northEast);
+
 //initiate map
 var map = L.map('map', {
     center: [39.28, -113.44],
     zoom: 11,
     layers: [sat, geo, faultLayer, CSLayer],
+	maxBounds: bounds,
+	maxZoom: 16,
+    minZoom: 9,
 	inertia: false
 });
 
@@ -158,8 +152,6 @@ var baseMaps = {
 
 //add all layers to map
 L.control.layers(baseMaps).addTo(map);
-
-
 
 //jQuery document ready function
 $(function(){
@@ -236,7 +228,3 @@ $(function(){
 	});
 	
 });
-	
-	
-
-

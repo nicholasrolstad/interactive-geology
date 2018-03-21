@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Geology</title>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+	<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+	<link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/units.js"></script>
+	<script type="text/javascript" src="js/faults.js"></script>
+	<script type="text/javascript" src="js/crosssections.js"></script>
+	
+<style>
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:600|Titillium+Web:900|Raleway');
+</style> 
+
+          
+</head>
+<body>
+	<div class="grid-container">
+        <div class = "row">
+            <div class = "col-4">
+				<div class="full" id="map-container">
+					<div id="map" class="">
+						<script type="text/javascript" src="js/map.js"></script>
+					</div>
+				</div>
+				<div class="" id="crossSectionDiv">
+				</div>
+            </div>
+        	<div class = "col-2">
+				<div class="row2 p20">				
+					<div class="title col-6">
+						<h1>Interactive Geologic Map:</h1>
+						<h2>Wah-Wah Mountains North and Tule Valley 30' x 60' Quadrangles</h2>
+					</div>
+				</div>
+				
+				<div class = "row2 p25" style="padding-top:4px!important;">
+					<div class="col-6">
+						<img src="images/legend.svg" alt="test" style="width: 100%; height: auto;">
+					</div>
+				</div>
+				
+				<div class= "row2 p11">
+					<div class="col-6" style="background-color: #3c3c3c !important;"><h3>Control Panel</h3></div>
+				</div>
+				
+				<div class = "row2 p11">
+					<div class="col-3"><input type="button" value="Hide Geologic Units" id="btn1"/></div>
+					<div class="col-3 descriptions" style="padding-top: 5px;">Click to toggle visibility of geologic units. Hovering over satellite imagery will highlight unit under cursor.</div>
+				</div>
+				
+
+				<div class = "row2 p11">
+					<div class="col-3"><input type="button" value="Hide Faults" id="hf1"/></div>
+					<div class="col-3 descriptions" style="padding-top: 25px;">Click to toggle visibility of faults.</div>
+				</div>
+				
+				<div class = "row2 p11">
+					<div class="col-3"><input type="button" value="Hide Cross-Sections" id="cs1"/></div>
+					<div class="col-3 descriptions" style="padding-top: 25px;">Click to toggle visibility of cross-section lines.  If open, cross-section viewer will close.</div>
+				</div>
+				
+				<div class = "row2 p11">
+					<div class="col-3"><input type="button" value="View Map Fullscreen" id="fs1"/></div>
+					<div class="col-3 descriptions" style="padding-top: 25px;">Click to view map in fullscreen mode.</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</body>
+</html>
